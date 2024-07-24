@@ -8,11 +8,10 @@ namespace Assignment3.Utility
 {
     public class Node
     {
-        private string _data;                        
-                                          //use GENERICS to work with any data structure
+        private User _data;                                                 
         private Node _next;
 
-        public string Data 
+        public User Data 
         {
             get { return _data; } 
             set { _data = value; }        
@@ -24,12 +23,11 @@ namespace Assignment3.Utility
             set { _next = value; }  
         }
 
-        public Node(string data)
+        public Node(User data)
         {
             _data = data;
             _next = null; 
         }
-
 
 
     }

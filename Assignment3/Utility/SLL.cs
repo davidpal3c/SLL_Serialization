@@ -4,26 +4,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+
 namespace Assignment3.Utility
 {
-    internal class SLL
+    internal class SLL : ILinkedListADT
     {
 
         private Node _head;
         private Node _tail;
-        private int _count;
 
         private string _message;
 
-        public Node Head { get { return _head; } }
+        public Node Head { get { return _head; } set { _head = value; } }
 
-        public Node Tail { get { return _tail; } }
+        public Node Tail { get { return _tail; } set { _tail = value; } }
 
-        public int Count
-        {
-            get { return _count; }
-            set { _count = value; }
-        }
 
         public string Message
         {
@@ -34,45 +30,33 @@ namespace Assignment3.Utility
 
         public SLL()
         {
-            _head = _tail = null;           // both head & tail point to null (initially)
-            _count = 0;
+            _head = _tail = null;           // both head & tail point to null (initially)            
         }
 
 
-        public void AddFirst(string s)
+        public bool IsEmpty() 
         {
-            Node new_node = new Node(s);
-            if (_head == null)
+            if (this.Head == null || this.Tail == null) 
             {
-                _head = _tail = new_node;
-                Count++;
+                return true;
             }
             else
             {
-                new_node.Next = this._head;
-                this._head = new_node;
-            }
-            //_head = new Node(s);            // object created inside the method
+                return false;
+            }                                
         }
 
-        public void RemoveFirst()
+
+        public void Clear() 
         {
-            if (_head != null)
-            {
-                Node temp = _head;
-                this._head = temp.Next;
-                temp = null;
-            }
-            else
-            {
-                Console.WriteLine("Empty list!");
-                this._message = "Empty list!";               //unit test msg
-            }
+            this.Head = null;
+            this.Tail = null;
         }
 
-        public void AddLast(string s)
+
+        public void AddLast(User value) 
         {
-            Node new_node = new Node(s);
+            Node new_node = new Node(value);
 
             if (_head != null)
             {
@@ -86,7 +70,184 @@ namespace Assignment3.Utility
             }
         }
 
-        public void RemoveLast()
+        public void AddFirst(User value) 
+        {
+            Node new_node = new Node(value);
+
+            if (_head == null)
+            {
+                this._head = this._tail = new_node;
+            }
+            else
+            {
+                new_node.Next = this._head;
+                this._head = new_node;
+            }            
+        }
+
+        public void Add(User value, int index) 
+        {
+            
+            Node newNode = new Node(value);
+
+            if (this.Head == null)
+            {
+                if(index == 0)
+                {
+                    this.Head = newNode;
+                    this.Tail = newNode;
+
+                }
+                else
+                {
+                    throw new IndexOutOfRangeException("Index out of bounds!");
+                }
+                
+            }
+            else
+            {
+                int length = 0;
+                Node n = this.Head;
+
+                while (n != null)
+                {
+                    n = n.Next;
+                    length++;
+                }
+
+
+                if (index < 0)
+                {
+                    index = length + index;
+                }
+
+                if (index < 0 || index > length)
+                {
+                    throw new ArgumentOutOfRangeException("Index out of bounds!");
+                }
+
+
+                if (index == 0)
+                {
+                    newNode.Next = this.Head;
+                    this.Head = newNode;
+
+                    if (length == 0) 
+                    {
+                        this.Tail = newNode;
+                    }
+                }
+                else
+                {
+                    Node prev = null;
+                    n = this.Head;
+
+                    //find node before index
+                    for (int i = 0; i < index; i++)
+                    {
+                        prev = n;
+                        n = n.Next;    
+                    }
+
+                    //insert node
+                    prev.Next = newNode;
+                    newNode.Next = n;
+
+                    if (newNode.Next != null)
+                    {
+                        this.Tail = newNode;
+                    }   
+
+                }
+            }
+        }            
+
+        public void Replace(User value, int index) 
+        {
+            if (this.Head != null)
+            {
+                int length = 0;
+                Node n = this.Head;
+
+                while (n != null)
+                {
+                    n = n.Next;
+                    length++;
+                }
+
+                if (index < 0)
+                {
+                    index = length + index;
+                }
+
+                if (index < 0 || index > length)
+                {
+                    throw new ArgumentOutOfRangeException("Index out of bounds!");
+                }
+
+                n = this.Head;
+                //traverse sll finding node using index
+                for (int i = 0; i < index; i++)
+                {
+                    if (n == null)
+                    {
+                        throw new InvalidOperationException("Unexpected null node during traverse.");
+                    }
+                    
+                    n = n.Next;
+                }
+
+                if (n != null)
+                {
+                    n.Data = value;
+                }
+                else
+                {
+                    throw new InvalidOperationException("Node at the specified index is null.");
+                }                
+
+                //add NullReferenceException
+            }
+            else
+            {
+                throw new InvalidOperationException("The list is empty!");
+            }
+        }
+
+
+        public int Count() 
+        {
+            int length = 0;
+
+            if (this.Head != null)
+            {                
+                Node n = this.Head; 
+
+                while (n != null)
+                {
+                    n = n.Next;
+                    length++;
+                }                
+            }
+            return length;        
+        }    
+
+
+        public void RemoveFirst() 
+        {
+            if (_head != null)
+            {
+                Node temp = _head;
+                this._head = temp.Next;
+                temp = null;
+            }
+            else
+            {
+                Console.WriteLine("Empty list!");                
+            }
+        }
+
+        public void RemoveLast() 
         {
             if (_head != null)
             {
@@ -100,33 +261,81 @@ namespace Assignment3.Utility
             }
             else
             {
-                Console.WriteLine("Empty list!");
-                this._message = "Empty list!";
+                Console.WriteLine("Empty list!");                
             }
-        }
+        }    
 
-        public void Traverse()
+        public void Remove(int index) 
         {
-            if (this._head != null)
+            if (this.Head == null)
             {
-                Node n = _head;                 //reusing object pointed by the head variable
+                throw new InvalidOperationException("The list is empty.");
+            }
 
-                do
+            int length = 0;
+            Node n = this.Head;                       
+
+            while (n != null)
+            {
+                n = n.Next;
+                length++;
+            }
+
+            if (index < 0)
+            {
+                index = length + index;
+            }
+
+            if (index < 0 || index > length)
+            {
+                throw new ArgumentOutOfRangeException("Index out of bounds!");
+            }
+
+            n = this.Head;
+            Node prev = null;
+
+            for (int i = 0; i < index; i++)
+            {
+                prev = n;
+                n = n.Next;
+            }
+                                
+            if (n != null)
+            {
+                //removing head node if prev is null
+                if (prev == null)
                 {
-                    Console.WriteLine($"--> {n.Data}");
-                    n = n.Next;                          //updating reference to the next (move to the next)
+                    this.Head = n.Next;
+
+                    //if list becomes is empty
+                    if (this.Head == null)
+                    {
+                        this.Tail = null;
+                    }
                 }
-                while (n != null);
+                else
+                {                    
+                    prev.Next = n.Next;
+                    if (n.Next == null)
+                    {
+                        this.Tail = prev;
+                    }
+                }
+
+                n = null;           //null reference of removed node
+                
             }
             else
             {
-                Console.WriteLine("Empty List!");
+                throw new InvalidOperationException("Node at the specified index is null.");
             }
+      
         }
-
-
-        public string GetValue(int index)
+               
+        public User GetValue(int index)
         {
+            //try/catch exception handling
+
             if (this._head != null)
             {
                 int length = 0;
@@ -146,8 +355,9 @@ namespace Assignment3.Utility
 
                 if (index < 0 || index > length)
                 {
-                    this._message = "Index out of bounds!";
-                    return "Index out of bounds!";
+                    throw new ArgumentOutOfRangeException("Index out of bounds!");
+                    
+                    //return "Index out of bounds!";                                       
                 }
 
                 //traverse sll and find node using index
@@ -158,16 +368,40 @@ namespace Assignment3.Utility
                 }
 
                 return n.Data;
-
             }
             else
             {
-                this._message = "Empty list!";
-                return "Empty list!";
+                throw new InvalidOperationException("Empty list!");
             }
-
         }
 
+        public int IndexOf(User value) { return 0; }
+
+
+        public bool Contains(User value) { return false; }
+
+
+
+        public void Traverse()
+        {
+            if (this._head != null)
+            {
+                Node n = _head;                 
+
+                do
+                {
+                    Console.WriteLine($"--> {n.Data.ToString()}");
+                    n = n.Next;                          //updating reference to the next (move to the next)
+                }
+                while (n != null);
+            }
+            else
+            {
+                Console.WriteLine("\nEmpty List!");
+            }
+        }
+
+        /*
 
         public int SizeOfSLL()
         {
@@ -190,5 +424,8 @@ namespace Assignment3.Utility
 
             return size;
         }
+        */
+
+
     }
 }

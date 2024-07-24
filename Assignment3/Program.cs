@@ -1,5 +1,6 @@
-﻿using Assignment3.Utility;
+﻿
 using System;
+using Assignment3.Utility;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,52 +12,117 @@ namespace Assignment3
     {
         public static void Main(string[] args) 
         {
-            Console.WriteLine("SLL \n");
+
+            User usr1 = new User(001, "Otto", "blind_melon@springfieldelementary.com", "password");
+            User usr2 = new User(002, "Skinner", "mom_s_boy@springfieldelementary.com", "password");
+            User usr3 = new User(003, "Ralph", "ralphy@springfieldelementary.com", "password");
+            User usr4 = new User(004, "Lisa", "lisa@springfieldelementary.com", "password");
+            User usr5 = new User(005, "Milhouse", "foureyes@springfieldelementary.com", "password");
+            User usr6 = new User(006, "Nelson", "aaaha@springfieldelementary.com", "password");
+
+
+
             SLL sll1 = new SLL();
 
-            sll1.Traverse();
-            // conditions: 
-            // If list is empty
-            // what if there is a single element
-            // what if there are more elements
+
+            if (sll1.IsEmpty())
+            {
+                Console.WriteLine("List is empty!");
+            }
+            else
+            {
+                Console.WriteLine("List is NOT empty!");
+            }
 
 
-            // preppend : implemented in SLL as it is part of the list (not the node) 
+
+            sll1.AddFirst(usr1);
+            sll1.AddLast(usr2);
+            sll1.AddLast(usr3);
+            sll1.AddLast(usr4);
+            sll1.AddLast(usr5);
+            sll1.AddFirst(usr6);
 
 
-            // two ways of implementing
-            sll1.AddFirst("Name 1");
-            sll1.AddFirst("Name 2");
-            sll1.AddFirst("Name 3");
-            sll1.AddLast("Name 4");
-            sll1.AddLast("Name 5");
-            sll1.AddLast("Name 6");
-            //sll1.AddFirst(new Node("Name 2"));
-
-            //sll1.AddFirst(new Node("Name1"));
-            sll1.Traverse();
-
-
-            //remove first node
-            sll1.RemoveFirst();
-            Console.WriteLine("\nRemoved first node:");
             sll1.Traverse();
 
+            //sll1.GetValue(usr2);
 
-            //remove last node
-            sll1.RemoveLast();
-            Console.WriteLine("\nRemoved last node:");
+            try
+            {
+                Console.WriteLine();
+                Console.WriteLine($"\n{sll1.GetValue(2).ToString()}");
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                Console.WriteLine($"{ex.Message}");
+            }
+            catch (InvalidOperationException ex)
+            {
+                Console.WriteLine($"{ex.Message}");
+            }
+
+            /*
+            try
+            {
+                sll1.IsEmpty();
+            }
+            */
+
+            if (sll1.IsEmpty())
+            {
+                Console.WriteLine("List is empty!");
+            } else
+            {
+                Console.WriteLine("List is NOT empty!");
+            }
+
+            Console.WriteLine("\nClearing list...");
+            sll1.Clear();
+
             sll1.Traverse();
 
-            //get data by index
-            Console.WriteLine($"\nValue returned by index: {sll1.GetValue(-1)}");
+
+            if (sll1.IsEmpty())
+            {
+                Console.WriteLine("List is empty!");
+            }
+            else
+            {
+                Console.WriteLine("List is NOT empty!");
+            }
+
+            sll1.AddFirst(usr1);
+            sll1.AddLast(usr2);
+            sll1.AddLast(usr3);
+            sll1.AddLast(usr4);
+            sll1.AddLast(usr5);
+            sll1.AddFirst(usr6);
+
+            sll1.Traverse();
+            Console.WriteLine(sll1.Count());
+
+            
+            
+            Console.WriteLine("\n");
+            Console.WriteLine("\nAdding using index");
 
 
-            //get size of SLL
-            Console.WriteLine($"\nSize of SLL is: {sll1.SizeOfSLL()}");
+            User usr7 = new User(007, "Willie", "scottishkeeper@springfieldelementary.com", "password");
+            sll1.Add(usr7, 4);
+
+            sll1.Traverse();
+            Console.WriteLine(sll1.Count());
 
 
-            Console.WriteLine("\n\nFinished.");
+            //Console.WriteLine("\nReplace by index");
+            //sll1.Replace(usr7, 3);
+
+            Console.WriteLine("\nRemove obj by index");
+            sll1.Remove(6);
+
+            sll1.Traverse();
+            Console.WriteLine(sll1.Count());
 
         }
     }
