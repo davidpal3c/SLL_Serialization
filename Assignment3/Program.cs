@@ -14,8 +14,9 @@ namespace Assignment3
         public static void Main(string[] args) 
         {
 
-            IOService.LoadFile();
+            SLL sll1 = IOService.LoadFile();
 
+            
             User usr1 = new User(001, "Otto", "blind_melon@springfieldelementary.com", "password");
             User usr2 = new User(002, "Skinner", "mom_s_boy@springfieldelementary.com", "password");
             User usr3 = new User(003, "Ralph", "ralphy@springfieldelementary.com", "password");
@@ -24,10 +25,7 @@ namespace Assignment3
             User usr6 = new User(006, "Nelson", "aaaha@springfieldelementary.com", "password");
 
             User usr8 = new User(008, "None", "another@springfieldelementary.com", "password");
-
-
-            SLL sll1 = new SLL();
-
+                                  
 
             if (sll1.IsEmpty())
             {
@@ -45,9 +43,7 @@ namespace Assignment3
             sll1.AddLast(usr4);
             sll1.AddLast(usr5);
             sll1.AddFirst(usr6);
-
-            
-            
+                      
 
 
             sll1.Traverse();
@@ -172,8 +168,6 @@ namespace Assignment3
             IOService.SaveToFile(sll1);
 
         }
-
-
 
     }
 }

@@ -12,7 +12,7 @@ namespace Assignment3.Services
 {
     internal class IOService
     {
-        private static string relativePath = @"C:\cprg211\SLL_&_Serialization\Assignment3Skeleton\Assignment3\Resources\users.bin";
+        private static string relativePath = @"C:\cprg211\SLL_&_Serialization\Assignment3Skeleton\Assignment3\Resources\test_users.bin";
         private static string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, relativePath);
 
 

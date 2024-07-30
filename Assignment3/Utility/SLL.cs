@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,26 +10,24 @@ using System.Threading.Tasks;
 
 namespace Assignment3.Utility
 {
-    internal class SLL : ILinkedListADT
+    [DataContract]
+    public class SLL : ILinkedListADT
     {
 
+        [DataMember]
         private Node _head;
+
+        [DataMember]
         private Node _tail;
 
-        private string _message;
-
+        [DataMember]
         public Node Head { get { return _head; } set { _head = value; } }
 
+        [DataMember]
         public Node Tail { get { return _tail; } set { _tail = value; } }
 
 
-        public string Message
-        {
-            get { return _message; }
-            set { _message = value; }
-        }
-
-
+        
         public SLL()
         {
             _head = _tail = null;           // both head & tail point to null (initially)            
