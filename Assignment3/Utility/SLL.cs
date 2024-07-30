@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -46,13 +47,11 @@ namespace Assignment3.Utility
             }                                
         }
 
-
         public void Clear() 
         {
             this.Head = null;
             this.Tail = null;
         }
-
 
         public void AddLast(User value) 
         {
@@ -375,10 +374,55 @@ namespace Assignment3.Utility
             }
         }
 
-        public int IndexOf(User value) { return 0; }
+        public int IndexOf(User value) 
+        {
+
+            if (this.Head == null || value == null)
+            {
+                throw new InvalidOperationException("Empty list!");
+            }
+
+            Node n = this._head;
+            int index = 0;
+                                        
+            while (n != null)
+            {                                               
+                if (n.Data == value)
+                {
+                    return index;
+                }
+
+                n = n.Next;
+                index++;
+            }
+
+            throw new FileNotFoundException("User object not found in list");
+                                 
+        }
 
 
-        public bool Contains(User value) { return false; }
+        public bool Contains(User value) 
+        {
+            if (this.Head == null)
+            {
+                throw new InvalidOperationException("Empty list!");
+            }           
+
+            Node n = this._head;            
+            int k = 0;
+
+            while (n != null)
+            {
+                if (n.Data == value)
+                {
+                    //k = 1;
+                    return true;
+                }
+                n = n.Next;                
+            }
+
+            return false;                  
+        }
 
 
 
@@ -401,9 +445,7 @@ namespace Assignment3.Utility
             }
         }
 
-        /*
-
-        public int SizeOfSLL()
+        public int GetSizeOfSLL()
         {
             int size = 0;
 
@@ -424,8 +466,74 @@ namespace Assignment3.Utility
 
             return size;
         }
-        */
 
+        public void Sort()
+        {
+            if (this.Head == null)
+            {
+                throw new InvalidOperationException("Empty list!");
+            }
+
+            Node n;
+            User temp;
+            bool swapped;
+
+            do
+            {
+                swapped = false;
+                n = this._head;
+
+                while (n != null && n.Next != null)
+                {
+                    if (n.Data.Name[0] > n.Next.Data.Name[0])
+                    {
+                        temp = n.Data;
+                        n.Data = n.Next.Data;
+                        n.Next.Data = temp;
+
+                        swapped = true;
+                    }
+                    n = n.Next;
+                }
+            }
+            while (swapped);
+        }
+
+
+        /*
+        //using bubble sort (int)
+        public void Sort()
+        {
+            if (this.Head == null)
+            {
+                throw new InvalidOperationException("Empty list!");
+            }
+
+            Node n;
+            int temp;
+            bool swapped;
+
+            do
+            {
+                swapped = false;
+                n = this._head;
+
+                while (n != null && n.Next != null)
+                {
+                    if (n.Data.Id > n.Next.Data.Id)
+                    {
+                        temp = n.Data.Id;
+                        n.Data.Id = n.Next.Data.Id;
+                        n.Next.Data.Id = temp;
+
+                        swapped = true;
+                    }
+                    n = n.Next;
+                }
+            }
+            while (swapped);                
+        }
+        */
 
     }
 }

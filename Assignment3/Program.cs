@@ -20,7 +20,7 @@ namespace Assignment3
             User usr5 = new User(005, "Milhouse", "foureyes@springfieldelementary.com", "password");
             User usr6 = new User(006, "Nelson", "aaaha@springfieldelementary.com", "password");
 
-
+            User usr8 = new User(008, "None", "another@springfieldelementary.com", "password");
 
             SLL sll1 = new SLL();
 
@@ -124,6 +124,49 @@ namespace Assignment3
             sll1.Traverse();
             Console.WriteLine(sll1.Count());
 
+            
+            Console.WriteLine("\nTest find object index");
+            Console.WriteLine(sll1.IndexOf(usr6));
+
+
+            
+            Console.WriteLine("\nContains value test");
+
+            bool k = sll1.Contains(usr6);
+            bool j = sll1.Contains(usr7);
+
+            if (k == true)
+            {
+                Console.WriteLine("True");
+            }
+            else
+            {
+                Console.WriteLine("False"); 
+            }
+
+
+            if (j == true)
+            {
+                Console.WriteLine("True");
+            }
+            else
+            {
+                Console.WriteLine("False");
+            }
+
+
+            Console.WriteLine("\nBubble Sort test:");
+            sll1.Traverse();
+
+            Console.WriteLine();
+            sll1.Sort();
+            sll1.Traverse();
+
+
+
         }
+
+
+
     }
 }
