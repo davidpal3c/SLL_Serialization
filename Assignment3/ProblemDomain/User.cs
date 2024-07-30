@@ -83,5 +83,13 @@ namespace Assignment3
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(Password);
             return hashCode;
         }
+
+
+        public override string ToString()
+        {
+            return $"ID: {Id}, Name: {Name}, Email: {Email}";
+        }
+
+
     }
 }

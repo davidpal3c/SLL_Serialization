@@ -17,6 +17,8 @@ namespace Assignment3
         /// <summary>
         /// Clears the list.
         /// </summary>
+ 
+        
         void Clear();
 
         /// <summary>
@@ -51,7 +53,7 @@ namespace Assignment3
         /// Gets the number of elements in the list.
         /// </summary>
         /// <returns>Size of list (0 meaning empty)</returns>
-        int Count();
+        int Count(); 
 
         /// <summary>
         /// Removes first element from list
@@ -78,6 +80,7 @@ namespace Assignment3
         /// <param name="index">Index of element to get.</param>
         /// <returns>Value of node at index</returns>
         /// <exception cref="IndexOutOfRangeException">Thrown if index is negative or larger than size - 1 of list.</exception>
+        
         User GetValue(int index);
 
         /// <summary>
@@ -93,5 +96,11 @@ namespace Assignment3
         /// <param name="value">Value to find index of.</param>
         /// <returns>True if element exists with value.</returns>
         bool Contains(User value);
+
+        /// <summary>
+        /// Sorts lists by object's name attribute (A to Z)
+        /// </summary>
+        void SortByName();
+
     }
 }
