@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="ErrorChecker.cs" />
     <Compile Include="GetValueException.cs" />
+    <Compile Include="Services\IOService.cs" />
     <Compile Include="Utility\ILinkedListADT.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -60,6 +61,8 @@
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

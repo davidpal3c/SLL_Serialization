@@ -181,7 +181,7 @@ namespace Assignment3.Utility
 
                 if (index < 0 || index > length)
                 {
-                    throw new ArgumentOutOfRangeException("Index out of bounds!");
+                    throw new IndexOutOfRangeException("Index out of bounds!");
                 }
 
                 n = this.Head;
@@ -204,8 +204,7 @@ namespace Assignment3.Utility
                 {
                     throw new InvalidOperationException("Node at the specified index is null.");
                 }                
-
-                //add NullReferenceException
+                                
             }
             else
             {
@@ -260,10 +259,10 @@ namespace Assignment3.Utility
             }
             else
             {
-                Console.WriteLine("Empty list!");                
+                throw new InvalidOperationException("The list is empty!");
             }
-        }    
-
+        }
+        
         public void Remove(int index) 
         {
             if (this.Head == null)
@@ -287,7 +286,7 @@ namespace Assignment3.Utility
 
             if (index < 0 || index > length)
             {
-                throw new ArgumentOutOfRangeException("Index out of bounds!");
+                throw new IndexOutOfRangeException("Index larger than list size");
             }
 
             n = this.Head;
@@ -354,7 +353,7 @@ namespace Assignment3.Utility
 
                 if (index < 0 || index > length)
                 {
-                    throw new ArgumentOutOfRangeException("Index out of bounds!");
+                    throw new IndexOutOfRangeException("Index out of bounds!");
                     
                     //return "Index out of bounds!";                                       
                 }
@@ -467,7 +466,7 @@ namespace Assignment3.Utility
             return size;
         }
 
-        public void Sort()
+        public void SortByName()
         {
             if (this.Head == null)
             {

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Assignment3.Services;
 
 namespace Assignment3
 {
@@ -12,6 +13,8 @@ namespace Assignment3
     {
         public static void Main(string[] args) 
         {
+
+            IOService.LoadFile();
 
             User usr1 = new User(001, "Otto", "blind_melon@springfieldelementary.com", "password");
             User usr2 = new User(002, "Skinner", "mom_s_boy@springfieldelementary.com", "password");
@@ -21,6 +24,7 @@ namespace Assignment3
             User usr6 = new User(006, "Nelson", "aaaha@springfieldelementary.com", "password");
 
             User usr8 = new User(008, "None", "another@springfieldelementary.com", "password");
+
 
             SLL sll1 = new SLL();
 
@@ -35,13 +39,15 @@ namespace Assignment3
             }
 
 
-
             sll1.AddFirst(usr1);
             sll1.AddLast(usr2);
             sll1.AddLast(usr3);
             sll1.AddLast(usr4);
             sll1.AddLast(usr5);
             sll1.AddFirst(usr6);
+
+            
+            
 
 
             sll1.Traverse();
@@ -159,10 +165,11 @@ namespace Assignment3
             sll1.Traverse();
 
             Console.WriteLine();
-            sll1.Sort();
+            sll1.SortByName();
             sll1.Traverse();
 
 
+            IOService.SaveToFile(sll1);
 
         }
 
