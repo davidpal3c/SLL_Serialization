@@ -5,3 +5,10 @@ C:\cprg211\SLL_&_Serialization\Assignment3Skeleton\Assignment3\obj\Debug\Assignm
 C:\cprg211\SLL_&_Serialization\Assignment3Skeleton\Assignment3\obj\Debug\Assignment3.csproj.CoreCompileInputs.cache
 C:\cprg211\SLL_&_Serialization\Assignment3Skeleton\Assignment3\obj\Debug\Assignment3.exe
 C:\cprg211\SLL_&_Serialization\Assignment3Skeleton\Assignment3\obj\Debug\Assignment3.pdb
+C:\cprg211\SLL_&_Serialization\Assignment3Skeleton(1)\Assignment3\bin\Debug\Assignment3.exe.config
+C:\cprg211\SLL_&_Serialization\Assignment3Skeleton(1)\Assignment3\bin\Debug\Assignment3.exe
+C:\cprg211\SLL_&_Serialization\Assignment3Skeleton(1)\Assignment3\bin\Debug\Assignment3.pdb
+C:\cprg211\SLL_&_Serialization\Assignment3Skeleton(1)\Assignment3\obj\Debug\Assignment3.csproj.AssemblyReference.cache
+C:\cprg211\SLL_&_Serialization\Assignment3Skeleton(1)\Assignment3\obj\Debug\Assignment3.csproj.CoreCompileInputs.cache
+C:\cprg211\SLL_&_Serialization\Assignment3Skeleton(1)\Assignment3\obj\Debug\Assignment3.exe
+C:\cprg211\SLL_&_Serialization\Assignment3Skeleton(1)\Assignment3\obj\Debug\Assignment3.pdb

@@ -7,13 +7,14 @@ using System.Text;
 using System.Threading.Tasks;
 using Assignment3.Services;
 
+
 namespace Assignment3
 {
     internal class Program
     {
         public static void Main(string[] args) 
         {
-            
+
             try
             {
                 IOService.LoadFile();
@@ -173,12 +174,11 @@ namespace Assignment3
                 IOService.SaveToFile(sll1);
 
             }
-            catch (Exception e) 
+            catch (Exception e)
             {
                 Console.WriteLine(e.Message);
             }
 
-            
 
         }
 
