@@ -46,8 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ErrorChecker.cs" />
-    <Compile Include="GetValueException.cs" />
     <Compile Include="Services\IOService.cs" />
     <Compile Include="Utility\ILinkedListADT.cs" />
     <Compile Include="Program.cs" />
