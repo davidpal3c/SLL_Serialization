@@ -240,7 +240,7 @@ namespace Assignment3.Utility
             }
             else
             {
-                Console.WriteLine("Empty list!");                
+                throw new InvalidOperationException("The list is empty.");
             }
         }
 
@@ -262,6 +262,7 @@ namespace Assignment3.Utility
             }
         }
         
+
         public void Remove(int index) 
         {
             if (this.Head == null)
@@ -299,12 +300,10 @@ namespace Assignment3.Utility
                                 
             if (n != null)
             {
-                //removing head node if prev is null
                 if (prev == null)
                 {
                     this.Head = n.Next;
 
-                    //if list becomes is empty
                     if (this.Head == null)
                     {
                         this.Tail = null;

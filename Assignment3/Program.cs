@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Assignment3.Services;
 
+
 namespace Assignment3
 {
     internal class Program
@@ -18,12 +19,12 @@ namespace Assignment3
 
             
             User usr1 = new User(001, "Otto", "blind_melon@springfieldelementary.com", "password");
-            User usr2 = new User(002, "Skinner", "mom_s_boy@springfieldelementary.com", "password");
+            User usr2 = new User(002, "Skinner", "yes_mom@springfieldelementary.com", "password");
             User usr3 = new User(003, "Ralph", "ralphy@springfieldelementary.com", "password");
             User usr4 = new User(004, "Lisa", "lisa@springfieldelementary.com", "password");
             User usr5 = new User(005, "Milhouse", "foureyes@springfieldelementary.com", "password");
             User usr6 = new User(006, "Nelson", "aaaha@springfieldelementary.com", "password");
-
+            User usr7 = new User(007, "Willie", "scottishkeeper@springfieldelementary.com", "password");
             User usr8 = new User(008, "None", "another@springfieldelementary.com", "password");
                                   
 
@@ -110,7 +111,7 @@ namespace Assignment3
             Console.WriteLine("\nAdding using index");
 
 
-            User usr7 = new User(007, "Willie", "scottishkeeper@springfieldelementary.com", "password");
+            
             sll1.Add(usr7, 4);
 
             sll1.Traverse();
@@ -124,14 +125,13 @@ namespace Assignment3
             sll1.Remove(6);
 
             sll1.Traverse();
-            Console.WriteLine(sll1.Count());
-
+            Console.WriteLine(sll1.Count());  
             
+
             Console.WriteLine("\nTest find object index");
             Console.WriteLine(sll1.IndexOf(usr6));
-
-
             
+
             Console.WriteLine("\nContains value test");
 
             bool k = sll1.Contains(usr6);
