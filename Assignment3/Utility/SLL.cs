@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+<<<<<<< HEAD
+using System.Runtime.Serialization;
+=======
+>>>>>>> d0f6483ff801db6d9c35d4dbff82b9f132938570
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,6 +13,26 @@ using System.Threading.Tasks;
 
 namespace Assignment3.Utility
 {
+<<<<<<< HEAD
+    [DataContract]
+    public class SLL : ILinkedListADT
+    {
+
+        [DataMember]
+        private Node _head;
+
+        [DataMember]
+        private Node _tail;
+
+        [DataMember]
+        public Node Head { get { return _head; } set { _head = value; } }
+
+        [DataMember]
+        public Node Tail { get { return _tail; } set { _tail = value; } }
+
+
+        
+=======
     internal class SLL : ILinkedListADT
     {
 
@@ -29,6 +53,7 @@ namespace Assignment3.Utility
         }
 
 
+>>>>>>> d0f6483ff801db6d9c35d4dbff82b9f132938570
         public SLL()
         {
             _head = _tail = null;           // both head & tail point to null (initially)            
@@ -241,7 +266,11 @@ namespace Assignment3.Utility
             }
             else
             {
+<<<<<<< HEAD
+                throw new InvalidOperationException("The list is empty.");
+=======
                 Console.WriteLine("Empty list!");                
+>>>>>>> d0f6483ff801db6d9c35d4dbff82b9f132938570
             }
         }
 
@@ -263,6 +292,10 @@ namespace Assignment3.Utility
             }
         }
         
+<<<<<<< HEAD
+
+=======
+>>>>>>> d0f6483ff801db6d9c35d4dbff82b9f132938570
         public void Remove(int index) 
         {
             if (this.Head == null)
@@ -300,12 +333,18 @@ namespace Assignment3.Utility
                                 
             if (n != null)
             {
+<<<<<<< HEAD
+=======
                 //removing head node if prev is null
+>>>>>>> d0f6483ff801db6d9c35d4dbff82b9f132938570
                 if (prev == null)
                 {
                     this.Head = n.Next;
 
+<<<<<<< HEAD
+=======
                     //if list becomes is empty
+>>>>>>> d0f6483ff801db6d9c35d4dbff82b9f132938570
                     if (this.Head == null)
                     {
                         this.Tail = null;
